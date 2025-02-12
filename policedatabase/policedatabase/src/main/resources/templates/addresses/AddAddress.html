@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Address</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+  <h1 class="text-center my-4">Add Address</h1>
+
+  <!-- Formularul de adăugare -->
+  <form method="post" th:object="${adresa}" th:action="@{/addresses/add}">
+    <div th:if="${#fields.hasErrors()}" class="alert alert-danger">
+      <ul>
+        <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+      </ul>
+    </div>
+
+    <!-- Strada -->
+    <div class="form-group mb-3">
+      <label for="strada">Street</label>
+      <input id="strada" class="form-control" th:field="*{strada}" placeholder="Enter street name" required>
+      <div th:if="${#fields.hasErrors('strada')}" class="text-danger">
+        <p th:each="err : ${#fields.errors('strada')}" th:text="${err}"></p>
+      </div>
+    </div>
+
+    <!-- Număr -->
+    <div class="form-group mb-3">
+      <label for="numar">Number</label>
+      <input id="numar" class="form-control" th:field="*{numar}" placeholder="Enter number" required>
+      <div th:if="${#fields.hasErrors('numar')}" class="text-danger">
+        <p th:each="err : ${#fields.errors('numar')}" th:text="${err}"></p>
+      </div>
+    </div>
+
+    <!-- Oraș -->
+    <div class="form-group mb-3">
+      <label for="oras">City</label>
+      <input id="oras" class="form-control" th:field="*{oras}" placeholder="Enter city name" required>
+      <div th:if="${#fields.hasErrors('oras')}" class="text-danger">
+        <p th:each="err : ${#fields.errors('oras')}" th:text="${err}"></p>
+      </div>
+    </div>
+
+    <!-- Județ -->
+    <div class="form-group mb-3">
+      <label for="judet">County</label>
+      <input id="judet" class="form-control" th:field="*{judet}" placeholder="Enter county name" required>
+      <div th:if="${#fields.hasErrors('judet')}" class="text-danger">
+        <p th:each="err : ${#fields.errors('judet')}" th:text="${err}"></p>
+      </div>
+    </div>
+
+    <!-- Butoane pentru salvare și anulare -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">
+        <i class="bi bi-save"></i> Save Address
+      </button>
+      <a href="/addresses" class="btn btn-secondary">
+        <i class="bi bi-arrow-left-circle"></i> Cancel
+      </a>
+    </div>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

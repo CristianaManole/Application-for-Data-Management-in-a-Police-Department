@@ -1,0 +1,197 @@
+/* Fundal general al paginii */
+body {
+    background-color: #f5f7fa; /* Gri deschis, prietenos pentru ochi */
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Titlul paginii */
+h1 {
+    color: #2196F3;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Stil general pentru butoane */
+.btn {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 8px 12px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #4CAF50; /* Verde */
+}
+
+.btn-primary:hover {
+    background-color: #45a049; /* Verde mai închis */
+}
+
+.btn-danger {
+    background-color: #f44336; /* Roșu */
+}
+
+.btn-danger:hover {
+    background-color: #e53935; /* Roșu mai închis */
+}
+
+.btn-secondary {
+    background-color: #2196F3; /* Albastru */
+}
+
+.btn-secondary:hover {
+    background-color: #1e88e5; /* Albastru mai închis */
+}
+
+/* Tabel stilizat */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Fundal alb pentru tabel */
+}
+
+table thead {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+}
+
+table thead th {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 16px;
+}
+
+table tbody tr {
+    background-color: #fff;
+    border-bottom: 1px solid #dddddd;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3; /* Gri deschis pentru rândurile alternante */
+}
+
+table tbody tr:hover {
+    background-color: #e0f7e9; /* Verde pal pentru hover */
+    cursor: pointer;
+}
+
+table tbody td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+/* Fundal general pentru container */
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+
+/* Container pentru formular */
+.form-container {
+    background-color: #ffffff; /* Fundal alb */
+    border-radius: 10px; /* Colțuri rotunjite */
+    padding: 20px; /* Spațiere internă */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Umbra containerului */
+    max-width: 600px; /* Lățimea maximă */
+    margin: 20px auto; /* Centrare pe pagină */
+}
+
+/* Titlul formularului */
+.form-container h1 {
+    color: #2196F3; /* albastru */
+    text-align: center; /* Centrare */
+    margin-bottom: 20px; /* Spațiere sub titlu */
+}
+
+/* Etichetele (labels) */
+.form-container label {
+    display: block;
+    font-weight: bold;
+    color: #555; /* Gri */
+    margin-bottom: 8px; /* Spațiere între label și input */
+}
+
+/* Input-uri și select-uri */
+.form-container input,
+.form-container select {
+    width: 100%; /* Lățime completă */
+    padding: 10px; /* Spațiere internă */
+    margin-bottom: 15px; /* Spațiere între câmpuri */
+    border: 1px solid #ccc; /* Graniță gri deschis */
+    border-radius: 5px; /* Colțuri rotunjite */
+    box-sizing: border-box; /* Include padding-ul în dimensiune */
+    font-size: 14px; /* Dimensiune text */
+}
+
+/* Butoane */
+.form-container .btn {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Spațiere între butoane */
+}
+
+.form-container .btn-primary {
+    background-color: #4CAF50; /* Verde */
+}
+
+.form-container .btn-primary:hover {
+    background-color: #45a049; /* Verde mai închis */
+}
+
+.form-container .btn-secondary {
+    background-color: #2196F3; /* Albastru */
+}
+
+.form-container .btn-secondary:hover {
+    background-color: #1e88e5; /* Albastru mai închis */
+}
+
+/* Asigură afișarea corectă a dropdown-ului */
+select.form-control {
+    height: auto; /* Permite înălțime automată */
+    overflow-y: auto; /* Activează scroll dacă lista e lungă */
+}
+
+/* Placeholder pentru prima opțiune */
+select.form-control option[value=""][disabled] {
+    color: #999; /* Gri deschis pentru placeholder */
+}
+
+footer {
+    background-color: rgba(33, 150, 243, 0.3); /* Albastru poliție */
+    color: grey;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed; /* Plasează footer-ul fixat în partea de jos */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Se întinde pe întreaga lățime a paginii */
+    font-size: 14px;
+    z-index: 1000; /* Asigură-te că este deasupra altor elemente */
+}

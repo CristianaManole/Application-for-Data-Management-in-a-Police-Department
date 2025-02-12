@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>People & Citizenships</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+  <!-- Secțiunea pentru titlu și butoane -->
+  <div class="d-flex justify-content-between align-items-center my-4">
+    <!-- Buton pentru revenire la pagina principală -->
+    <a class="btn btn-secondary" href="/">
+      <i class="bi bi-arrow-left-circle"></i> Back to Home
+    </a>
+    <h1 class="text-center mb-0">People & Citizenships</h1>
+    <a class="btn btn-primary" href="/persoane-cetatenii/add">
+      <i class="bi bi-plus-circle"></i> Add Citizenship
+    </a>
+  </div>
+
+  <!-- Tabelul pentru afișarea relațiilor dintre persoane și cetățenii -->
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th class="text-center">Name</th>
+        <th class="text-center">Citizenships</th>
+        <th class="text-center">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="relation : ${relations}">
+        <!-- Afișarea numelui complet -->
+        <td class="text-center" th:text="${relation[1]} + ' ' + ${relation[2]}"></td>
+        <!-- Afișarea cetățeniilor -->
+        <td class="text-center" th:text="${relation[3]}"></td>
+        <!-- Acțiuni -->
+        <td class="text-center">
+          <div class="btn-group" role="group">
+            <!-- Buton pentru ștergere -->
+            <a class="btn btn-danger btn-sm" th:href="@{/persoane-cetatenii/delete-choose(idPersoana=${relation[0]})}">
+              <i class="bi bi-trash"></i> Delete
+            </a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="mt-3">
+      <a href="/persoane-cetatenii/people-with-multiple-citizenships" class="btn btn-success">
+        View People with Multiple Citizenships
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit Case</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+  <h1 class="text-center my-4">Edit Case</h1>
+  <form method="post" th:action="@{/cases/edit/{id}(id=${dosar.idDosar})}" th:object="${dosar}">
+    <!-- Case Number -->
+    <div class="form-group mb-3">
+      <label for="numarDosar">Case Number</label>
+      <input id="numarDosar" class="form-control" th:field="*{numarDosar}" placeholder="Enter case number" required>
+    </div>
+    <!-- Description -->
+    <div class="form-group mb-3">
+      <label for="descriere">Description</label>
+      <textarea id="descriere" class="form-control" th:field="*{descriere}" rows="3" placeholder="Enter description" required></textarea>
+    </div>
+    <!-- Registration Date -->
+    <div class="form-group mb-3">
+      <label for="dataInregistrarii">Registration Date</label>
+      <input id="dataInregistrarii" class="form-control" th:field="*{dataInregistrarii}" type="date" required>
+    </div>
+    <!-- Select Officer -->
+    <div class="form-group mb-3">
+      <label for="idOfiteri">Select Officer</label>
+      <select id="idOfiteri" class="form-select" th:field="*{idOfiteri}" required>
+        <option value="" disabled>-- Select Officer --</option>
+        <option th:each="officer : ${officers}" th:value="${officer.idOfiter}" th:text="${officer.nume} + ' ' + ${officer.prenume}"></option>
+      </select>
+    </div>
+
+    <!-- Select Person -->
+    <div class="form-group mb-3">
+      <label for="idPersoana">Select Person</label>
+      <select id="idPersoana" class="form-select" th:field="*{idPersoana}" required>
+        <option value="" disabled>-- Select Person --</option>
+        <option th:each="person : ${persons}" th:value="${person.idPersoana}" th:text="${person.nume} + ' ' + ${person.prenume}"></option>
+      </select>
+    </div>
+    <!-- Buttons -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">
+        <i class="bi bi-save"></i> Save Changes
+      </button>
+      <a href="/cases" class="btn btn-secondary">
+        <i class="bi bi-arrow-left-circle"></i> Cancel
+      </a>
+    </div>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
